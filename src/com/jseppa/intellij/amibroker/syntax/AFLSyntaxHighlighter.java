@@ -81,10 +81,10 @@ public class AFLSyntaxHighlighter extends SyntaxHighlighterBase {
             DefaultLanguageHighlighterColors.STRING, IET_STRING);
 
     private static final TextAttributesKey[] NUMBER = getTextAttributesKeyArray(
-            DefaultLanguageHighlighterColors.NUMBER, IET_NUMBER);
+            DefaultLanguageHighlighterColors.STRING, IET_NUMBER);
 
     private static final TextAttributesKey[] BUILTIN_ARRAYS = getTextAttributesKeyArray(
-            DefaultLanguageHighlighterColors.FUNCTION_DECLARATION, IET_BUILTIN_ARRAYS);
+            DefaultLanguageHighlighterColors.NUMBER, IET_BUILTIN_ARRAYS);
 
     private static final TextAttributesKey[] BUILTIN_FUNCTIONS = getTextAttributesKeyArray(
             DefaultLanguageHighlighterColors.INSTANCE_FIELD, IET_BUILTIN_FUNCTIONS);
@@ -93,7 +93,7 @@ public class AFLSyntaxHighlighter extends SyntaxHighlighterBase {
             DefaultLanguageHighlighterColors.STATIC_METHOD, IET_BUILTIN_HEADERS);
 
     private static final TextAttributesKey[] BUILTIN_COLORS_STYLES = getTextAttributesKeyArray(
-            DefaultLanguageHighlighterColors.FUNCTION_DECLARATION, IET_BUILTIN_COLORS_STYLES);
+            DefaultLanguageHighlighterColors.NUMBER, IET_BUILTIN_COLORS_STYLES);
 
     private static final TextAttributesKey[] COMMENTS = getTextAttributesKeyArray(
             DefaultLanguageHighlighterColors.LINE_COMMENT, IET_COMMENTS);

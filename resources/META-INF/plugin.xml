@@ -8,13 +8,11 @@
 <pre>
     AmiBroker AFL Language Plugin for Intellij
 
-    Basic functionality so far:
+    Implemented functionality:
     - AFL File Type
     - Syntax Highlighting
     - Right click option to go to AFL reference for a builtin function
-
-    TODO:
-    - Auto Complete
+    - Basic Auto Completion
 </pre>
     ]]></description>
 
@@ -36,6 +34,7 @@
     <fileTypeFactory implementation="com.jseppa.intellij.amibroker.file.AFLFileTypeFactory"/>
     <lang.parserDefinition language="AFL" implementationClass="com.jseppa.intellij.amibroker.AFLParserDefinition"/>
     <lang.syntaxHighlighterFactory language="AFL" implementationClass="com.jseppa.intellij.amibroker.syntax.AFLSyntaxHighlighterFactory"/>
+    <completion.contributor language="AFL" implementationClass="com.jseppa.intellij.amibroker.completion.AFLCompletionContributor"/>
   </extensions>
 
   <actions>
@@ -54,5 +53,7 @@
       <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
   </actions>
+
+  <depends>com.intellij.modules.lang</depends>
 
 </idea-plugin>
