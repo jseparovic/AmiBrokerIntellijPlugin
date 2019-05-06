@@ -1,0 +1,48 @@
+<idea-plugin>
+  <id>com.your.company.unique.plugin.id</id>
+  <name>AmiBroker</name>
+  <version>1.0</version>
+  <vendor email="jseppa01@gmail.com" url="http://www.jseppa.com">Jason Separovic</vendor>
+
+  <description><![CDATA[
+      AmiBroker AFL Language Plugin
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Adding right click to AFL function reference feature
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <fileTypeFactory implementation="com.jseppa.intellij.amibroker.file.AFLFileTypeFactory"/>
+    <lang.parserDefinition language="AFL" implementationClass="com.jseppa.intellij.amibroker.AFLParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="AFL" implementationClass="com.jseppa.intellij.amibroker.syntax.AFLSyntaxHighlighterFactory"/>
+  </extensions>
+
+  <actions>
+    <action
+          class="com.jseppa.intellij.amibroker.actions.AFLFunctionReference"
+          id="Amibroker.AFLFunctionReference.EditorPopupMenu"
+          text="AFL Function Reference"
+          description="Naviagate to the AFL function reference for this function">
+      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+    </action>
+    <action
+          id="Amibroker.AFLFunctionReference.ToolsMenu"
+          class="com.jseppa.intellij.amibroker.actions.AFLFunctionReference"
+          text="AFL Function Reference"
+          description="Naviagate to the AFL function reference for this function">
+      <add-to-group group-id="ToolsMenu" anchor="last"/>
+    </action>
+  </actions>
+
+</idea-plugin>

@@ -1,0 +1,48 @@
+{
+  parserClass="com.jseppa.intellij.amibroker.AFLParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="AFL"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.jseppa.intellij.amibroker.psi"
+  psiImplPackage="com.jseppa.intellij.amibroker.psi.impl"
+
+  elementTypeHolderClass="com.jseppa.intellij.amibroker.psi.AFLTypes"
+  elementTypeClass="com.jseppa.intellij.amibroker.psi.AFLElementType"
+  tokenTypeClass="com.jseppa.intellij.amibroker.psi.AFLTokenType"
+
+}
+
+AFLFile ::= item_*
+
+private item_ ::= ( property | LINE_TERMINATOR | WHITE_SPACE | BLOCK_COMMENT | LINE_COMMENT | COLOR_STRING_LITERAL | CHAR_LITERAL
+                    | INTEGER_LITERAL | DOUBLE_LITERAL | STRING_LITERAL | COLOR_CONSTANT_LITERAL | IF_KEYWORD
+                    | ELSE_KEYWORD | FOR_KEYWORD | WHILE_KEYWORD | LOCAL_KEYWORD | BREAK_KEYWORD | SWITCH_KEYWORD
+                    | CASE_KEYWORD | CONTINUE_KEYWORD | DEFAULT_KEYWORD | DO_KEYWORD | FUNCTION_KEYWORD | GLOBAL_KEYWORD
+                    | PROCEDURE_KEYWORD | RETURN_KEYWORD | STATIC_KEYWORD | TYPEOF_KEYWORD | INCLUDE_KEYWORD
+                    | IDENTIFIER | INCREMENT | DECREMENT | ARRAY_ELEMENT | EXP | MINUS | MUL | DIV | MOD | PLUS | LT
+                    | GT | EQ_EQ | LESS_EQ | GT_EQ | NOT_EQ | BITWISE_AND | BITWISE_OR | LOGICAL_NOT | LOGICAL_AND
+                    | LOGICAL_OR | EQ | ASSIGN_MUL | ASSIGN_DIV | ASSIGN_MOD | ASSIGN_PLUS | ASSIGN_MINUS | ASSIGN_AND
+                    | ASSIGN_OR | L_ROUND_BRACKET | R_ROUND_BRACKET | L_CURLY_BRACKET | R_CURLY_BRACKET
+                    | L_SQUARE_BRACKET | R_SQUARE_BRACKET | SEMICOLON | COLON_COLON | COLON | COMMA | DOT | ESCAPE
+                    | BAD_CHARACTER | BUILTIN_FUNCTIONS | BUILTIN_HEADERS | BUILTIN_COLORS | BUILTIN_STYLES | BUILTIN_ARRAYS)
+
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY
+
+/*
+Definition ::= FunctionDefinition
+
+FunctionDefinition ::= function IDENTIFIER L_ROUND_BRACKET R_ROUND_BRACKET L_CURLY_BRACKET FunctionBody R_CURLY_BRACKET
+
+FunctionBody ::= Statement*
+
+Statement ::= VariableDefinition | AssignmentStatement | FunctionInvocation
+
+VariableDefinition ::= IDENTIFIER (LINE_TERMINATOR | (EQ FunctionInvocation)?)
+
+AssignmentStatement ::= IDENTIFIER EQ FunctionInvocation
+
+FunctionInvocation ::= IDENTIFIER L_ROUND_BRACKET R_ROUND_BRACKET LINE_TERMINATOR
+*/
