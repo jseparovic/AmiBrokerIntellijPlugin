@@ -51,10 +51,6 @@ public class AFLParserDefinition implements ParserDefinition {
         return new AFLFile(viewProvider);
     }
 
-    public SpaceRequirements spaceExistenceTypeBetweenTokens(ASTNode left, ASTNode right) {
-        return SpaceRequirements.MAY;
-    }
-
     @NotNull
     public PsiElement createElement(ASTNode node) {
         return AFLTypes.Factory.createElement(node);

@@ -1,11 +1,21 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
+  <id>com.jseppa.intellij.amibroker</id>
   <name>AmiBroker</name>
   <version>1.0</version>
-  <vendor email="jseppa01@gmail.com" url="http://www.jseppa.com">Jason Separovic</vendor>
+  <vendor email="jseppa01@gmail.com" url="https://github.com/jseparovic/AmiBrokerIntellijPlugin">Jason Separovic</vendor>
 
   <description><![CDATA[
-      AmiBroker AFL Language Plugin
+<pre>
+    AmiBroker AFL Language Plugin for Intellij
+
+    Basic functionality so far:
+    - AFL File Type
+    - Syntax Highlighting
+    - Right click option to go to AFL reference for a builtin function
+
+    TODO:
+    - Auto Complete
+</pre>
     ]]></description>
 
   <change-notes><![CDATA[

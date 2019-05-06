@@ -17,25 +17,41 @@ public class AFLFunctionReference extends AnAction
 
     public AFLFunctionReference()
     {
-        super("AFLLanguage Function Reference");
+        super("AFL Function Reference");
     }
 
-    public void actionPerformed(AnActionEvent e)
+    private LeafPsiElement getLeafPsiElement(AnActionEvent e)
     {
         PsiFile file = e.getData(CommonDataKeys.PSI_FILE);
         Editor editor = e.getRequiredData(CommonDataKeys.EDITOR);
         int caret = editor.getCaretModel().getOffset();
         PsiElement element = file.findElementAt(caret);
 
-        if(element != null && element instanceof LeafPsiElement)
+        if (element != null && element instanceof LeafPsiElement)
         {
             LeafPsiElement leafPsiElement = (LeafPsiElement) element;
-            if(leafPsiElement.getElementType().equals(AFLTypes.BUILTIN_FUNCTIONS))
-            {
-                String text = leafPsiElement.getText();
-                BrowserUtil.browse(String.format(AFL_REF_URL, text.toLowerCase()));
-            }
+            return leafPsiElement;
         }
-
+        return null;
     }
+
+    private boolean isBuiltInFunction(LeafPsiElement leafPsiElement)
+    {
+        return leafPsiElement != null && leafPsiElement.getElementType().equals(AFLTypes.BUILTIN_FUNCTIONS);
+    }
+
+    public void actionPerformed(AnActionEvent e)
+    {
+        LeafPsiElement leafPsiElement = getLeafPsiElement(e);
+        if(isBuiltInFunction(leafPsiElement))
+        {
+            String text = leafPsiElement.getText();
+            BrowserUtil.browse(String.format(AFL_REF_URL, text.toLowerCase()));
+        }
+    }
+
+    public void update(AnActionEvent e) {
+        e.getPresentation().setEnabled(isBuiltInFunction(getLeafPsiElement(e)));
+    }
+
 }

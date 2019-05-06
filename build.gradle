@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.4.8"
+}
+
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+sourceSets {
+    main {
+        java.srcDirs 'src', 'gen'
+        resources.srcDirs 'resources', 'resources'
+    }
+}
+
+intellij {
+    version 'IC-2019.1'
+    plugins 'coverage'
+    pluginName 'AmiBroker'
+}
+
+group 'com.jseppa.intellij.amibroker'
+version '1.0' // Plugin version
+
+idea {
+    module {
+        sourceDirs += file('src')
+        sourceDirs += file('gen')
+        resourceDirs += file('resources')
+    }
+}

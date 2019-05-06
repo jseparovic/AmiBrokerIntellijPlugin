@@ -111,6 +111,12 @@ builtin_functions = abs | AccDist | acos | AddColumn | AddMultiTextColumn | AddR
                         | _PARAM_VALUES | _SECTION_BEGIN | _SECTION_END | _SECTION_NAME | _TRACE | _TRACEF
 
 builtin_arrays = Open | High | Low | Close | Volume | Buy | Sell | Short | Cover | BuyPrice | SellPrice | ShortPrice | CoverPrice
+                     | BarCount | Null | in15Minute | in1Minute | in1Second | in5Minute | inHourly | inMonthly | inDaily
+                     | inQuarterly | inWeekly | inYearly | expandFirst | expandPoint | expandLast
+                     | spsShares | spsNoChange | spsPercentOfEquity | spsPercentOfPosition | spsValue
+                     | Title | Tooltip | True | False | TickSize | Aux1 | Aux2 | Avg | MaxGraph | Filter
+                     | NumColumns | PositionSize | PositionScore |MarginDeposit | PointValue | RoundLotSize | Exclude | GraphZOrder
+                     | GraphXSpace
 
 
 /*End of rules*/

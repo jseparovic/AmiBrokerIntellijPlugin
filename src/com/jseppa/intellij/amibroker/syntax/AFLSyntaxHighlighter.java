@@ -84,13 +84,13 @@ public class AFLSyntaxHighlighter extends SyntaxHighlighterBase {
             DefaultLanguageHighlighterColors.NUMBER, IET_NUMBER);
 
     private static final TextAttributesKey[] BUILTIN_ARRAYS = getTextAttributesKeyArray(
-            DefaultLanguageHighlighterColors.FUNCTION_DECLARATION, IET_BUILTIN_FUNCTIONS);
+            DefaultLanguageHighlighterColors.FUNCTION_DECLARATION, IET_BUILTIN_ARRAYS);
 
     private static final TextAttributesKey[] BUILTIN_FUNCTIONS = getTextAttributesKeyArray(
             DefaultLanguageHighlighterColors.INSTANCE_FIELD, IET_BUILTIN_FUNCTIONS);
 
     private static final TextAttributesKey[] BUILTIN_HEADERS = getTextAttributesKeyArray(
-            DefaultLanguageHighlighterColors.STATIC_METHOD, IET_BUILTIN_FUNCTIONS);
+            DefaultLanguageHighlighterColors.STATIC_METHOD, IET_BUILTIN_HEADERS);
 
     private static final TextAttributesKey[] BUILTIN_COLORS_STYLES = getTextAttributesKeyArray(
             DefaultLanguageHighlighterColors.FUNCTION_DECLARATION, IET_BUILTIN_COLORS_STYLES);
