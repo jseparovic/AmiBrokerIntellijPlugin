@@ -26,7 +26,7 @@ intellij {
 }
 
 group 'com.jseppa.intellij.amibroker'
-version '1.0' // Plugin version
+version '1.1' // Plugin version
 
 idea {
     module {
