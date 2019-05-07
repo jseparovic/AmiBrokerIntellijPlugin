@@ -6,16 +6,56 @@ buildscript {
 
 plugins {
     id "org.jetbrains.intellij" version "0.4.8"
+    id "org.jetbrains.grammarkit" version "2019.1"
 }
+
 
 apply plugin: 'idea'
 apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'org.jetbrains.grammarkit'
 apply plugin: 'java'
+
+import org.jetbrains.grammarkit.tasks.*
+
+
+task generateAFLParser(type: GenerateParser) {
+    // source bnf file
+    source = "resources/com/jseppa/intellij/amibroker/AFL.bnf"
+
+    // optional, task-specific root for the generated files. Default: none
+    targetRoot = 'gen'
+
+    // path to a parser file, relative to the targetRoot
+    pathToParser = '/com/jseppa/intellij/amibroker/AFLParser'
+
+    // path to a directory with generated psi files, relative to the targetRoot
+    pathToPsiRoot = '/com/jseppa/intellij/amibroker/psi'
+
+    // if set, plugin will remove a parser output file and psi output directory before generating new ones. Default: false
+    purgeOldFiles = true
+}
+
+task generateAFLLexer(type: GenerateLexer) {
+    // source flex file
+    source = "resources/com/jseppa/intellij/amibroker/AFL.flex"
+
+    // target directory for lexer
+    targetDir = "gen/com/jseppa/intellij/amibroker/"
+
+    // target classname, target file will be targetDir/targetClass.java
+    targetClass = "AFLLexer"
+
+    // optional, path to the task-specific skeleton file. Default: none
+    // skeleton = '/some/specific/skeleton'
+
+    // if set, plugin will remove a lexer output file before generating new one. Default: false
+    purgeOldFiles = true
+}
 
 sourceSets {
     main {
         java.srcDirs 'src', 'gen'
-        resources.srcDirs 'resources', 'resources'
+        resources.srcDirs 'resources'
     }
 }
 
@@ -33,5 +73,6 @@ idea {
         sourceDirs += file('src')
         sourceDirs += file('gen')
         resourceDirs += file('resources')
+        generatedSourceDirs += file('gen')
     }
 }
